@@ -23,8 +23,14 @@ public class Text : MonoBehaviour {
 		mesh.font = font;
 		mesh.characterSize = 0.1f;
 		
-		renderer.material = material;
-		renderer.material.color = color;
+		
+//		if (Application.isEditor && !Application.isPlaying) {
+//			renderer.sharedMaterial = material;
+//			renderer.sharedMaterial.color = color;
+//		} else {
+//			renderer.material = material;
+//			renderer.material.color = color;
+//		}
 	}
 	
 	void Awake () {
