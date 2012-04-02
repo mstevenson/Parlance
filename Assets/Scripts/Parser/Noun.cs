@@ -8,19 +8,18 @@ public class Noun : MonoBehaviour {
 	public bool takeable = true;
 	public Noun combineWith;
 
-	public override bool Equals (object obj)
+	public bool HasSynonym (string word)
 	{
-		if (obj is string) {
-			string target = (string)obj;
-			bool matched;
-			foreach (string s in synonyms) {
-				if (s == target) {
-					return true;
-				}
+		bool matched;
+		foreach (string s in synonyms) {
+			if (s == word) {
+				return true;
 			}
-			return false;
-		} else {
-			return base.Equals (obj);
 		}
+		return false;
+	}
+	
+	public virtual void CallVerb (string verb) {
+		
 	}
 }
