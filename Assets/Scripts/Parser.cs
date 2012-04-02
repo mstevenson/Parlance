@@ -57,13 +57,17 @@ public class Parser : MonoBehaviour
 				}
 			}
 			if (nounObject != null) {
+				nounObject.CallVerb (verb);
 				if (verb == "take" && nounObject.takeable) {
 					Debug.Log ("took " + noun);
 					var inv = Inventory.Instance;
 					inv.Add (nounObject);
 					nounObject.gameObject.SetActiveRecursively (false);
-				} else {
-					nounObject.CallVerb (verb);
+					
+					// HACK hardcode
+					if (noun == "intrinsic" || noun == "extrinsic") {
+						nounObject.GetComponent<Reward> ().ChangeColor ();
+					}
 				}
 			}
 			

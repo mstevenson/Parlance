@@ -3,6 +3,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	
+	public static GameController Instance {
+		get { return (GameController)FindObjectOfType (typeof(GameController)); }
+	}
+	
 	public Camera cam;
 	public Renderer ground;
 	
