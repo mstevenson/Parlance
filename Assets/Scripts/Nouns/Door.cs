@@ -7,17 +7,19 @@ public class Door : Noun {
 	{
 		switch (verb) {
 		case "open":
-			Debug.Log ("opening");
-			StartCoroutine ("DoOpen");
+			if (Inventory.Instance.HasItem ("key")) {
+				StartCoroutine ("DoOpen");
+			}
 			break;
 		}
 	}
 	
 	private IEnumerator DoOpen ()
 	{
+		Debug.Log ("opening");
 		while (transform.rotation.eulerAngles.y < 90) {
-			
-//			yield return null;
+			transform.Rotate (new Vector3 (0, 1, 0), 100 * Time.deltaTime);
+			yield return null;
 		}
 	}
 }

@@ -25,7 +25,7 @@ public class Parser : MonoBehaviour
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
 			text += " ";
 		} else if (text != "" && (Input.GetKeyDown (KeyCode.KeypadEnter) || Input.GetKeyDown (KeyCode.Return))) {
-			Enter (text);
+			Parse (text);
 			text = "";
 		} else {
 			if (!string.IsNullOrEmpty (Input.inputString)) {
@@ -36,7 +36,7 @@ public class Parser : MonoBehaviour
 		textMesh.text = text;
 	}
 	
-	void Enter (string thisText)
+	void Parse (string thisText)
 	{
 		string[] words = thisText.Split (' ');
 		
@@ -50,12 +50,23 @@ public class Parser : MonoBehaviour
 			string verb = words [0];
 			string noun = words [1];
 			
+			Noun nounObject = null;
 			foreach (Noun n in globalNouns) {
-				Debug.Log (n.HasSynonym (noun));
 				if (n.HasSynonym (noun)) {
-					n.CallVerb (verb);
+					nounObject = n;
 				}
 			}
+			if (nounObject != null) {
+				if (verb == "take" && nounObject.takeable) {
+					Debug.Log ("took " + noun);
+					var inv = Inventory.Instance;
+					inv.Add (nounObject);
+					nounObject.gameObject.SetActiveRecursively (false);
+				} else {
+					nounObject.CallVerb (verb);
+				}
+			}
+			
 		}
 		
 		if (thisText == "i" || thisText == "inventory") {

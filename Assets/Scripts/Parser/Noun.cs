@@ -5,7 +5,7 @@ public class Noun : MonoBehaviour {
 	
 	public string[] synonyms = new string[1];
 	
-	public bool takeable = true;
+	public bool takeable;
 	public Noun combineWith;
 
 	public bool HasSynonym (string word)
