@@ -9,6 +9,7 @@ public class Reward : Noun {
 	{
 		Debug.Log ("qwerqwer");
 		switch (verb) {
+		case "get":
 		case "take":
 //			GameController.Instance.ChangeColor (color);
 			break;

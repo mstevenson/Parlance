@@ -58,7 +58,7 @@ public class Parser : MonoBehaviour
 			}
 			if (nounObject != null) {
 				nounObject.CallVerb (verb);
-				if (verb == "take" && nounObject.takeable) {
+				if ((verb == "take" || verb == "get") && nounObject.takeable) {
 					Debug.Log ("took " + noun);
 					var inv = Inventory.Instance;
 					inv.Add (nounObject);

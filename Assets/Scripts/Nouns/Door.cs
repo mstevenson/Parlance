@@ -8,6 +8,8 @@ public class Door : Noun {
 	public override void CallVerb (string verb)
 	{
 		switch (verb) {
+		case "push":
+		case "unlock":
 		case "open":
 			if (Inventory.Instance.HasItem ("key")) {
 				StartCoroutine ("DoOpen");
