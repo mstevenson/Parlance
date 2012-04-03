@@ -10,11 +10,11 @@ public class ColorTester : MonoBehaviour {
 	IEnumerator ColorTest ()
 	{
 		yield return new WaitForSeconds (1f);
-		GameController gc = (GameController)FindObjectOfType (typeof(GameController));
-		gc.ChangeColor (gc.red);
+		World w = (World)FindObjectOfType (typeof(World));
+		w.ChangeColor (w.red);
 		yield return new WaitForSeconds (1.5f);
-		gc.ChangeColor (gc.yellow);
+		w.ChangeColor (w.yellow);
 		yield return new WaitForSeconds (1.5f);
-		gc.ChangeColor (gc.teal);
+		w.ChangeColor (w.teal);
 	}
 }

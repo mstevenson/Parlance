@@ -10,7 +10,6 @@ public class Noun : MonoBehaviour {
 
 	public bool HasSynonym (string word)
 	{
-		bool matched;
 		foreach (string s in synonyms) {
 			if (s == word) {
 				return true;

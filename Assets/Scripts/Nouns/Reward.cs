@@ -7,17 +7,17 @@ public class Reward : Noun {
 	
 	public override void CallVerb (string verb)
 	{
-		Debug.Log ("qwerqwer");
+//		GameController.Instance.ChangeColor (color);
 		switch (verb) {
 		case "get":
 		case "take":
-//			GameController.Instance.ChangeColor (color);
+			World.Instance.ChangeColor (color);
 			break;
 		}
 	}
 	
 	public void ChangeColor ()
 	{
-		GameController.Instance.ChangeColor (color);
+		World.Instance.ChangeColor (color);
 	}
 }

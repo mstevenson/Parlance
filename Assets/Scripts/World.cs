@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class World : MonoBehaviour {
 	
-	public static GameController Instance {
-		get { return (GameController)FindObjectOfType (typeof(GameController)); }
+	public static World Instance {
+		get { return (World)FindObjectOfType (typeof(World)); }
 	}
 	
 	public Camera cam;
